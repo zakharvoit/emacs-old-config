@@ -1,2 +1,6 @@
 elpa
+auto-save-list
+semanticdb
 org-clock-save.el
+ede-projects.el
+srecode-map.el
