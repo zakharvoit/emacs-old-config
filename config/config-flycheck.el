@@ -7,7 +7,10 @@
 (evil-leader/set-key (kbd "fk") 'flycheck-previous-error)
 
 (defun config/flycheck-c++ ()
-  (setq-default flycheck-clang-include-path config/c++-include-paths)
+  ;; (setq-default flycheck-clang-include-path config/c++-include-paths
+  ;;               flycheck-gcc-include-path config/c++-include-paths)
+  ;; (flycheck-add-next-checker 'c/c++-gcc '(warning . c/c++-cppcheck))
+  ;; (flycheck-add-next-checker 'c/c++-clang '(warning . c/c++-cppcheck))
   (add-hook 'c-mode-common-hook 'flycheck-mode)
   )
 

@@ -16,8 +16,12 @@
  ;; FIXME: Due to some bugs with emacs server, for now this will not take effect
  config/font "Source Code Pro-10"
 
- magit-rigid-key-bindings
+ indent-tabs-mode nil
+ ;; magit-rigid-key-bindings
+
+ enable-local-eval t
  )
+
 
 (require 'config-package)
 (require 'config-evil)
@@ -27,13 +31,19 @@
 (require 'config-recentf)
 
 (require 'config-rust)
+(require 'config-c++)
+(require 'config-nix)
 
 (require 'config-helm)
 (require 'config-company)
+
 (require 'config-srefactor)
 (require 'config-flycheck)
 (require 'config-projectile)
+;; (require 'config-whitespace)
 
-(require 'evil-magit-rebelion)
+;; (require 'evil-magit-rebelion)
 
 ;; (require 'config-ede)
+
+(add-hook 'c-mode-hook 'c++-mode)

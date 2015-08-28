@@ -7,6 +7,7 @@
 (electric-pair-mode)
 (global-linum-mode)
 (column-number-mode)
+(show-paren-mode)
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)

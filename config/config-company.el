@@ -5,8 +5,8 @@
 (require 'company)
 
 (setq-default
- company-idle-delay 0.1
- company-minimum-prefix-length 1
+ company-idle-delay 0.2
+ company-minimum-prefix-length 2
  )
 
 (global-company-mode)
@@ -17,17 +17,17 @@
 (global-set-key (kbd "C-f") 'company-complete)
 
 (defun config/company-c++ ()
-  ;; (package-install 'company-c-headers)
-  ;; (semantic-mode)
-  ;; (global-semantic-idle-scheduler-mode)
-  ;; (add-hook 'c-mode-common-hook (lambda ()
-  ;; 				  (make-variable-buffer-local 'company-backends)
-  ;; 				  (setq company-backends '(company-semantic
-  ;; 							   company-keywords
-  ;; 							   company-c-headers
-  ;; 							   company-dabbrev-code
-  ;; 							   ))
-  ;; 				  ))
+  (package-install 'company-c-headers)
+  (semantic-mode)
+  (global-semantic-idle-scheduler-mode)
+  (add-hook 'c-mode-common-hook (lambda ()
+  				  (make-variable-buffer-local 'company-backends)
+  				  (setq company-backends '(company-semantic
+  							   company-keywords
+  							   company-c-headers
+  							   company-dabbrev-code
+  							   ))
+  				  ))
   )
 
 (config/call-all-with-prefix config/company-langs "config/company-")
