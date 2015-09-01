@@ -17,17 +17,21 @@
 (global-set-key (kbd "C-f") 'company-complete)
 
 (defun config/company-c++ ()
+  (package-install 'irony)
+  (package-install 'company-irony)
   ;; (package-install 'company-c-headers)
   ;; (semantic-mode)
   ;; (global-semantic-idle-scheduler-mode)
-  ;; (add-hook 'c-mode-common-hook (lambda ()
-  ;; 				  (make-variable-buffer-local 'company-backends)
-  ;; 				  (setq company-backends '(company-semantic
-  ;; 							   company-keywords
-  ;; 							   company-c-headers
-  ;; 							   company-dabbrev-code
-  ;; 							   ))
-  ;; 				  ))
+  (add-hook 'c-mode-common-hook (lambda ()
+				  (irony-mode)
+  				  (make-variable-buffer-local 'company-backends)
+  				  (setq company-backends '(;; company-semantic
+							   company-irony
+  							   ;; company-keywords
+  							   ;; company-c-headers
+  							   ;; company-dabbrev-code
+  							   ))
+  				  ))
   )
 
 (config/call-all-with-prefix config/company-langs "config/company-")
