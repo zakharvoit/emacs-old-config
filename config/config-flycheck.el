@@ -7,8 +7,13 @@
 (evil-leader/set-key (kbd "fk") 'flycheck-previous-error)
 
 (defun config/flycheck-c++ ()
-  (setq-default flycheck-clang-include-path config/c++-include-paths)
-  (add-hook 'c-mode-common-hook 'flycheck-mode)
+  ;; (setq-default flycheck-clang-include-path config/c++-include-paths)
+  (package-install 'flycheck-irony)
+  (require 'flycheck-irony)
+  (add-hook 'c-mode-common-hook (lambda ()
+				  (irony-cdb-autosetup-compile-options)
+				  (flycheck-irony-setup)
+				  (flycheck-mode)))
   )
 
 (config/call-all-with-prefix config/flycheck-langs "config/flycheck-")

@@ -11,7 +11,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-;; (add-to-list 'default-frame-alist '(font . config/font))
-;; (set-frame-font config/font t t)
+;;(add-to-list 'default-frame-alist '(font . config/font))
+;;(set-frame-font config/font t t)
 
 (provide 'config-defaults)

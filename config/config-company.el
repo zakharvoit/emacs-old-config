@@ -19,10 +19,13 @@
 (defun config/company-c++ ()
   (package-install 'irony)
   (package-install 'company-irony)
+  (package-install 'yasnippet)
+  (yas-global-mode)
   ;; (package-install 'company-c-headers)
   ;; (semantic-mode)
   ;; (global-semantic-idle-scheduler-mode)
   (add-hook 'c-mode-common-hook (lambda ()
+				  (yas-minor-mode)
 				  (irony-mode)
   				  (make-variable-buffer-local 'company-backends)
   				  (setq company-backends '(;; company-semantic
